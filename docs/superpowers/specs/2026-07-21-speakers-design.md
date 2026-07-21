@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-21
 **Status:** Approved, ready for implementation planning
-**Part of:** the multi-increment build of the Teens of Purpose site. Sequence: **A. Speakers** → B. Experience → C. Parents & Leaders → D. Schedule & Bible Quiz → E. Final CTA + Footer. Each increment is designed, approved, and built on its own.
+**Part of:** the multi-increment build of the Teens of Purpose site. Sequence: **A. Speakers** (this doc, its own spec) → then **B–E combined** (Experience, Parents & Leaders, Schedule & Bible Quiz, Final CTA + Footer) in a single design doc, brainstormed together after Speakers ships.
 
 ---
 
