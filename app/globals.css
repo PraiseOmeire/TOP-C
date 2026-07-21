@@ -1,26 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f5f0;
+  --foreground: #111111;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Purpose in Motion — brand tokens (see DESIGN_SYSTEM.md) */
+  --color-purpose-black: #0a0a0a;
+  --color-warm-white: #f7f5f0;
+  --color-near-black: #111111;
+  --color-signal: #ff3b1f;
+  --color-electric-blue: #2a4dff;
+  --color-warm-cream: #efe6d8;
+  --color-body-on-dark: #b8b5ae;
+  --color-body-on-light: #55524a;
+
+  --font-display: var(--font-unbounded);
+  --font-serif: var(--font-fraunces);
+  --font-sans: var(--font-plus-jakarta);
+  --font-numeral: var(--font-bebas-neue);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
