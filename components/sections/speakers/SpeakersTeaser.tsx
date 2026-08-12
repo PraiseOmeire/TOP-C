@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { SectionHeading } from "@/components/sections/SectionHeading";
 import { SpeakerCard } from "./SpeakerCard";
@@ -34,8 +33,12 @@ export function SpeakersTeaser({
   };
 
   const item: Variants = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduceMotion ? 0 : 0.7, ease: EASE },
+    },
   };
 
   return (
@@ -45,37 +48,31 @@ export function SpeakersTeaser({
       className="scroll-mt-24 bg-purpose-black px-6 py-24 sm:px-10 sm:py-32 lg:px-16"
     >
       <div className="mx-auto max-w-[1600px]">
-        <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
-          <SectionHeading
-            id={HEADING_ID}
-            eyebrow="Speakers"
-            title="Voices Worth Showing Up For"
-            description="A line-up chosen to meet teenagers where they are — honest teaching, real worship, and room for the questions that matter."
-            tone="dark"
-          />
-          <Link
-            href="/speakers"
-            className="group inline-flex shrink-0 items-center gap-2 font-sans text-sm font-semibold uppercase tracking-[0.2em] text-warm-white transition-colors hover:text-signal focus-visible:outline-none focus-visible:text-signal"
-          >
-            Meet the speakers
-            <span aria-hidden className="transition-transform group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </Link>
-        </div>
+        <SectionHeading
+          id={HEADING_ID}
+          tone="dark"
+          eyebrow="Speakers"
+          title="Voices you'll hear"
+        />
 
         <motion.div
+          // Native overflow scroller on mobile: make it a keyboard tab stop with
+          // an accessible name and a visible focus ring, so keyboard-only users
+          // can reach the cards that sit off-screen (axe scrollable-region-focusable).
+          tabIndex={0}
+          role="group"
+          aria-label="Speaker line-up"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-120px" }}
           variants={container}
-          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 sm:mt-16 lg:grid lg:grid-cols-3 lg:gap-10 lg:overflow-visible lg:pb-0"
+          className="mt-14 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-signal sm:mt-16 lg:grid lg:grid-cols-3 lg:gap-0 lg:divide-x lg:divide-white/15 lg:overflow-visible lg:pb-0"
         >
           {speakers.map((speaker) => (
             <motion.div
               key={speaker.slug}
               variants={item}
-              className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-auto"
+              className="w-[78%] shrink-0 snap-start sm:w-[46%] lg:w-auto lg:px-8 lg:first:pl-0 lg:last:pr-0"
             >
               <SpeakerCard speaker={speaker} />
             </motion.div>

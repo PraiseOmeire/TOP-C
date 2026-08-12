@@ -6,16 +6,18 @@ type ImagePlaceholderProps = {
   alt: string;
   className?: string;
   /**
-   * Reflective (LIGHT) images get a rounded frame; energetic (DARK) images
-   * bleed to the edge with no radius per DESIGN_SYSTEM.md. Defaults to `true`
-   * (rounded) so existing reflective callers are unaffected.
+   * @deprecated No-op. Per DESIGN_SYSTEM.md §5, border radius is sharp/none by
+   * default and small radius is reserved for inputs/tags — never large editorial
+   * imagery. All images now render sharp-cornered; reflective (LIGHT) images get
+   * their "framed" feel from surrounding layout margin/whitespace (§6), not a
+   * corner radius. Kept only so existing callers passing this prop still compile.
    */
   radius?: boolean;
 };
 
-// Radius signals energy vs. depth per DESIGN_SYSTEM.md's UI System:
-// reflective sections round their images; energetic/DARK sections keep sharp,
-// full-bleed edges.
+// All imagery renders with sharp corners per DESIGN_SYSTEM.md §5 (radius sharp
+// by default; small radius reserved for inputs/tags). Reflective images read as
+// "framed" via layout margin, energetic/DARK images bleed full to the edge.
 const FRAME_BASE = "relative overflow-hidden";
 
 /**
@@ -29,9 +31,8 @@ export function ImagePlaceholder({
   src,
   alt,
   className,
-  radius = true,
 }: ImagePlaceholderProps) {
-  const frame = `${FRAME_BASE} ${radius ? "rounded-2xl" : ""}`;
+  const frame = FRAME_BASE;
 
   if (src) {
     return (
@@ -41,7 +42,7 @@ export function ImagePlaceholder({
           alt={alt}
           fill
           sizes="(min-width: 1024px) 40vw, 100vw"
-          className="object-cover [filter:grayscale(1)_contrast(1.1)]"
+          className="object-cover"
         />
       </div>
     );

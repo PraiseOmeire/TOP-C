@@ -5,12 +5,20 @@ export type ExperienceItem = {
 
 export type ExperiencePillar = {
   id: string;
-  /** Electric-Blue kicker tag, e.g. "Presence", "New This Year". */
-  tag: string;
+  /** Electric-Blue kicker tag, e.g. "Presence", "New This Year". Omitted where the title needs no tag. */
+  tag?: string;
   title: string;
-  blurb: string;
+  /** One honest line of copy. Omitted where the title needs no gloss. */
+  blurb?: string;
   /** Sub-cards that expand a pillar (used by Skill Acquisition). */
   items?: ExperienceItem[];
+};
+
+export type BibleQuiz = {
+  title: string;
+  blurb: string;
+  /** Small urgency tag rendered in Signal Red-Orange. */
+  prizeTag: string;
 };
 
 // The threads of the weekend, as a program index. Swap copy/order for the real
@@ -19,21 +27,18 @@ export type ExperiencePillar = {
 export const experiencePillars: ExperiencePillar[] = [
   {
     id: "worship",
-    tag: "Presence",
-    title: "Worship",
-    blurb:
-      "Not a performance to watch — a room to join. Worship built to help teenagers find their own voice before God, honest and unhurried.",
+    title: "Intense Worship",
   },
   {
     id: "bible-study",
-    tag: "The Word",
     title: "Bible Study",
-    blurb:
-      "Scripture opened plainly and taken seriously — teaching that treats teenagers as capable of real faith and real questions.",
+  },
+  {
+    id: "the-word",
+    title: "The Word",
   },
   {
     id: "skill-acquisition",
-    tag: "New This Year",
     title: "Skill Acquisition",
     blurb:
       "Purpose is practical. This year we're putting real, in-demand skills in their hands — the kind they keep long after the weekend ends.",
@@ -51,3 +56,10 @@ export const experiencePillars: ExperiencePillar[] = [
     ],
   },
 ];
+
+export const bibleQuiz: BibleQuiz = {
+  title: "Bible Quiz Competition",
+  blurb:
+    "Know your Bible? Put it to the test. Teams go head to head on Day 2 — and there's a prize for the winners.",
+  prizeTag: "Win a prize",
+};

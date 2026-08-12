@@ -22,7 +22,7 @@ export const conferenceDetails: ConferenceDetails = {
   description:
     "A generation rising to know God, discover purpose, and carry His fire into the world.",
   dateLabel: "August 14 & 15, 2026",
-  location: "Magboro, Ogun State",
+  location: "Galine Road, Magboro, Ogun State",
   // Day 1 starts at 2 PM (see content/schedule.ts) — the countdown ticks to that.
   targetDateISO: "2026-08-14T14:00:00+01:00",
 };

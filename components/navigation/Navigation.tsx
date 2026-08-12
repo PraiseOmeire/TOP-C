@@ -69,7 +69,7 @@ export function Navigation() {
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-4 sm:px-10 lg:px-16">
           <Link
             href="/"
-            className="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.15em] text-warm-white focus-visible:outline-none focus-visible:text-signal"
+            className="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-[0.15em] text-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal focus-visible:text-signal"
           >
             <PurposeMark className="h-5 w-5 text-warm-white" />
             Teens of Purpose
@@ -86,7 +86,7 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`font-sans text-sm uppercase tracking-[0.15em] transition-colors hover:text-signal focus-visible:outline-none focus-visible:text-signal ${
+                  className={`font-sans text-sm uppercase tracking-[0.15em] transition-colors hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal focus-visible:text-signal ${
                     isActive ? "text-signal" : "text-warm-white"
                   }`}
                 >
@@ -98,7 +98,9 @@ export function Navigation() {
 
           <div className="flex items-center gap-4">
             <Link
-              href="/#register"
+              href="https://forms.gle/ihdhsghatDEQnwtn8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="border border-signal bg-signal px-4 py-2 font-sans text-xs font-semibold uppercase tracking-[0.2em] text-purpose-black transition-colors duration-300 hover:bg-purpose-black hover:text-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal sm:px-5 sm:py-2.5"
             >
               Register
@@ -230,7 +232,7 @@ function MobileMenu({
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
                 onClick={onClose}
-                className={`block border-b border-white/10 py-4 font-display text-4xl uppercase tracking-tight transition-colors hover:text-signal focus-visible:outline-none focus-visible:text-signal ${
+                className={`block border-b border-white/10 py-4 font-display text-4xl uppercase tracking-tight transition-colors hover:text-signal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal focus-visible:text-signal ${
                   isActive ? "text-signal" : "text-warm-white"
                 }`}
               >
@@ -252,7 +254,9 @@ function MobileMenu({
         className="pt-8"
       >
         <Link
-          href="/register"
+          href="https://forms.gle/ihdhsghatDEQnwtn8"
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={onClose}
           className="inline-block border border-signal bg-signal px-8 py-4 font-sans text-sm font-semibold uppercase tracking-[0.2em] text-purpose-black transition-colors duration-300 hover:bg-purpose-black hover:text-warm-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-warm-white"
         >

@@ -33,6 +33,7 @@ export function MoreThanAConference({
           </div>
           <div className="lg:col-span-6">
             <ImagePlaceholder
+              src="/images/Top-1.jpg"
               alt="Teenagers from across churches gathered together at Teens of Purpose"
               className="aspect-[4/5] w-full sm:aspect-[16/10] lg:aspect-[4/5]"
             />

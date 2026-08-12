@@ -21,7 +21,10 @@ export function SpeakerCard({ speaker }: SpeakerCardProps) {
         className="aspect-[4/5] w-full"
       />
       <div className="mt-5 border-t border-white/15 pt-4">
-        <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-electric-blue">
+        {/* Filled Electric Blue credibility tag — Warm White on #2A4DFF clears
+            WCAG AA (≈5.35:1) where plain blue-on-black text would not; the
+            rectangular literal tag is sanctioned by DESIGN_SYSTEM.md §5. */}
+        <span className="inline-block bg-electric-blue px-2 py-1 font-sans text-[11px] font-semibold uppercase tracking-[0.25em] text-warm-white">
           {speaker.role}
         </span>
         <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight tracking-tight text-warm-white sm:text-3xl">

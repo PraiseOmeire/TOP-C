@@ -29,7 +29,7 @@ export function Countdown({ targetDateISO }: CountdownProps) {
           <span className="font-numeral text-6xl leading-none tabular-nums text-purpose-black sm:text-7xl lg:text-8xl">
             {formatValue(remaining?.[unit.key])}
           </span>
-          <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-purpose-black/70 sm:text-xs">
+          <span className="font-sans text-[10px] uppercase tracking-[0.25em] text-purpose-black sm:text-xs">
             {unit.label}
           </span>
         </div>

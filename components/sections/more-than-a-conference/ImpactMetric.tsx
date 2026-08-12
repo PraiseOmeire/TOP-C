@@ -37,10 +37,10 @@ export function ImpactMetric({ metric, index = 0 }: ImpactMetricProps) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
+      initial={{ opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.7,
+        duration: reduceMotion ? 0 : 0.7,
         delay: reduceMotion ? 0 : index * 0.12,
         ease: EASE,
       }}

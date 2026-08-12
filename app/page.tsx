@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero/Hero";
 import { MoreThanAConference } from "@/components/sections/more-than-a-conference/MoreThanAConference";
 import { ConferenceSection } from "@/components/sections/conference/ConferenceSection";
 import { SpeakersTeaser } from "@/components/sections/speakers/SpeakersTeaser";
+import { OrganizerBlock } from "@/components/sections/speakers/OrganizerBlock";
 import { ExperienceSection } from "@/components/sections/experience/ExperienceSection";
 import { ScheduleSection } from "@/components/sections/schedule/ScheduleSection";
 import { ParentsLeaders } from "@/components/sections/parents-leaders/ParentsLeaders";
@@ -14,9 +15,10 @@ export default function Home() {
       <MoreThanAConference />
       <ConferenceSection />
       <SpeakersTeaser />
+      <OrganizerBlock />
       <ExperienceSection />
       <ScheduleSection />
-      <ParentsLeaders />
+      {/* <ParentsLeaders /> */}
       <FinalCta />
     </main>
   );

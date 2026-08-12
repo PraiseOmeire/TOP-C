@@ -21,36 +21,39 @@ export type Organizer = {
   imageSrc?: string;
 };
 
-// Placeholder speaker line-up for the homepage teaser and /speakers page.
-// Swap names, roles, bios and imageSrc for the real line-up later — every
-// consumer (SpeakersTeaser, SpeakerRow) reads this same shape, so it's a
-// one-file change. Same placeholder philosophy as content/conference.ts.
+// The real speaker line-up for the homepage teaser and /speakers page.
+// Every consumer (SpeakersTeaser, SpeakerRow) reads this same shape, so
+// updating names, roles, bios or imageSrc here is a one-file change.
 export const speakers: Speaker[] = [
   {
-    slug: "guest-minister",
-    name: "Speaker One",
+    slug: "pastor-emmanuel-ekahan",
+    name: "Pastor Emmanuel Ekahan",
     role: "Guest Minister",
-    hook: "Teaching a generation to hear God for themselves.",
-    bio: "A minister with a heart for young people, known for making Scripture land plainly and personally. Expect teaching that treats teenagers as capable of real faith, real questions, and real calling — not a watered-down version of the gospel.",
+    hook: "Spreading the truth of the gospel around the world.",
+    bio: "A minister of God's word passionate about spreading the truth of the gospel around the world.",
+    imageSrc: "/images/speaker-1.jpeg",
   },
   {
-    slug: "worship-artist",
-    name: "Speaker Two",
-    role: "Worship Artist",
-    hook: "Leading worship that starts in the room and stays in your week.",
-    bio: "A worship leader who cares more about presence than performance. The sessions are built to help teenagers find their own voice in worship — unhurried, honest, and rooted in who God is rather than how the room feels.",
+    slug: "pastor-david-eze",
+    name: "Pastor David Eze",
+    role: "Founder, Jesus Lovers Network Movement",
+    hook: "Shaping youth and teenagers in God's way through evangelism and outreach.",
+    bio: "A minister and founder of the Jesus Lovers Network Movement. He is passionate about the lives of youth and teenagers, shaping them in God's way through evangelism and outreaches.",
+    imageSrc: "/images/speaker-2.jpeg",
   },
   {
-    slug: "youth-pastor",
-    name: "Speaker Three",
-    role: "Youth Pastor",
-    hook: "Walking with teenagers through the questions that matter.",
-    bio: "A youth pastor who has spent years in the ordinary, in-between moments of teenage life — the doubts, the pressure, the identity questions. Brings practical, grounded conversation about following Christ in the real world of school, friendships, and phones.",
+    slug: "minister-mercy-david-eze",
+    name: "Minister Mercy David Eze",
+    role: "Worship Minister",
+    hook: "Teaching and training young ones alongside her husband, Pastor David Eze.",
+    bio: "An anointed worship minister and teacher of the word. She has a passion for the young ones, teaching and training them alongside her husband, Pastor David Eze, through evangelism and outreaches.",
+    imageSrc: "/images/speaker-3.jpeg",
   },
 ];
 
 export const organizer: Organizer = {
-  name: "The Convener",
+  name: "Pst (Mrs) Rose Omeire",
   role: "Convener",
-  note: "Teens of Purpose began with one conviction: that teenagers are not the church of tomorrow, but a generation God is calling today. Every session, every detail, is shaped by a simple hope — that a young person leaves knowing they are seen, that their questions belong, and that their life has a purpose worth giving everything to.",
+  note: "A devoted lover of God with a deep passion for raising and inspiring the next generation to know Christ, discover their identity in Him, and live purposeful lives for Jesus. She is the wife of the General Overseer of Voice of Life Evangelical Ministry (Full Life Assembly), Pastor Herbert N. Omeire, where she serves actively with dedication to the work of the ministry. With a special burden for teenagers, she serves as the Teenagers' Coordinator, mentoring, teaching, and guiding young people in their walk with Christ. She is the convener and host of the annual Teens of Purpose Conference, a platform created to help teenagers discover their God-given potential, develop their gifts, and understand that they were created for a divine purpose.",
+  imageSrc: "/images/host-3.jpg",
 };

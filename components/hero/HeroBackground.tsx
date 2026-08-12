@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
 type HeroBackgroundProps = {
@@ -7,19 +8,19 @@ type HeroBackgroundProps = {
   videoSrc?: string;
   /** Poster frame shown while the video loads. */
   posterSrc?: string;
+  /** Public path to a static hero photo, used when there's no video yet. */
+  imageSrc?: string;
 };
 
-// Monochrome by default, per DESIGN_SYSTEM.md: full color is earned, never the
-// resting state of hero footage. The filter below enforces that even if a
-// color source video is dropped in later without regrading it first.
-const MONOCHROME_FILTER = "grayscale(1) contrast(1.15)";
-
-export function HeroBackground({ videoSrc, posterSrc }: HeroBackgroundProps) {
+export function HeroBackground({
+  videoSrc,
+  posterSrc,
+  imageSrc,
+}: HeroBackgroundProps) {
   if (videoSrc) {
     return (
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        style={{ filter: MONOCHROME_FILTER }}
         autoPlay
         muted
         loop
@@ -28,6 +29,19 @@ export function HeroBackground({ videoSrc, posterSrc }: HeroBackgroundProps) {
       >
         <source src={videoSrc} />
       </video>
+    );
+  }
+
+  if (imageSrc) {
+    return (
+      <Image
+        src={imageSrc}
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
     );
   }
 

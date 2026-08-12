@@ -2,20 +2,33 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { HeroBackground } from "./HeroBackground";
+import Link from "next/link";
 
 // Swap in real footage here once it exists — e.g. "/media/hero-loop.mp4" /
 // "/media/hero-poster.jpg" — nothing else in this file needs to change.
 const HERO_VIDEO_SRC: string | undefined = undefined;
 const HERO_POSTER_SRC: string | undefined = undefined;
+const HERO_IMAGE_SRC: string | undefined = "/images/Top-2.jpg";
 
 // Hard-edged entrance: settles firmly, no spring/overshoot — per the Motion
 // Language section of DESIGN_SYSTEM.md.
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+const HEADING_ID = "hero-heading";
+
 export function Hero() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section className="relative flex h-dvh min-h-[560px] w-full items-end overflow-hidden bg-purpose-black text-warm-white">
-      <HeroBackground videoSrc={HERO_VIDEO_SRC} posterSrc={HERO_POSTER_SRC} />
+    <section
+      aria-labelledby={HEADING_ID}
+      className="relative flex h-dvh min-h-[560px] w-full items-end overflow-hidden bg-purpose-black text-warm-white"
+    >
+      <HeroBackground
+        videoSrc={HERO_VIDEO_SRC}
+        posterSrc={HERO_POSTER_SRC}
+        imageSrc={HERO_IMAGE_SRC}
+      />
 
       {/* Scrim for type legibility over the footage */}
       <div className="absolute inset-0 bg-gradient-to-t from-purpose-black via-purpose-black/10 to-transparent" />
@@ -26,16 +39,17 @@ export function Hero() {
         </span>
 
         <motion.h1
-          initial={{ opacity: 0, y: 24 }}
+          id={HEADING_ID}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: EASE }}
-          className="max-w-[18ch] font-display text-[15vw] font-black uppercase leading-[0.85] tracking-tight text-warm-white sm:text-[10vw] lg:text-[7vw]"
+          className="max-w-[18ch] font-display text-[clamp(3rem,15vw,4rem)] font-black uppercase leading-[0.85] tracking-tight text-warm-white lg:text-[clamp(6rem,9vw,10rem)]"
         >
           Teens of Purpose
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 16 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE }}
           className="max-w-md font-sans text-lg text-warm-white sm:text-xl"
@@ -44,16 +58,18 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
         >
-          <a
-            href="#register"
+          <Link
+            href="https://forms.gle/ihdhsghatDEQnwtn8"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block border border-signal bg-signal px-8 py-4 font-sans text-sm font-semibold uppercase tracking-[0.2em] text-purpose-black transition-colors duration-300 hover:bg-purpose-black hover:text-warm-white"
           >
             Get Your Ticket
-          </a>
+          </Link>
         </motion.div>
       </div>
 
@@ -74,7 +90,7 @@ function ScrollCue() {
       animate={reduceMotion ? undefined : { y: [0, 10, 0] }}
       transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
     >
-      <svg width="2" height="56" viewBox="0 0 2 56" fill="none">
+      <svg width="2" height="56" viewBox="0 0 2 56" fill="none" overflow="visible">
         <line
           x1="1"
           y1="0"

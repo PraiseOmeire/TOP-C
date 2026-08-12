@@ -9,6 +9,7 @@ export type SiteInfo = {
   /** Social profiles — placeholder handles/URLs until the real ones exist. */
   socials: SiteLink[];
   contactEmail: string;
+  phone: string;
   location: string;
   hostChurch: string;
   datesLabel: string;
@@ -34,9 +35,10 @@ export const siteInfo: SiteInfo = {
     { label: "TikTok", href: "https://tiktok.com/" },
     { label: "YouTube", href: "https://youtube.com/" },
   ],
-  contactEmail: "hello@teensofpurpose.org",
-  location: "Magboro, Ogun State",
-  hostChurch: "Host Church Name",
+  contactEmail: "ivolem20@gmail.com",
+  phone: "0813 811 0621",
+  location: "Galine Road, Magboro, Ogun State",
+  hostChurch: "Full Life Assembly",
   datesLabel: "August 14 & 15, 2026",
-  registrationUrl: "#",
+  registrationUrl: "https://forms.gle/ihdhsghatDEQnwtn8",
 };

@@ -24,7 +24,7 @@ export function FinalCta() {
   };
 
   const item: Variants = {
-    hidden: { opacity: 0, y: reduceMotion ? 0 : 20 },
+    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
   };
 
@@ -70,13 +70,15 @@ export function FinalCta() {
         >
           <Link
             href={siteInfo.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-purpose-black bg-purpose-black px-8 py-4 font-sans text-sm font-semibold uppercase tracking-[0.2em] text-warm-white transition-colors duration-300 hover:bg-transparent hover:text-purpose-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purpose-black"
           >
             Register now
           </Link>
-          <span className="font-sans text-sm font-semibold uppercase tracking-[0.2em] text-purpose-black">
+          {/* <span className="font-sans text-sm font-semibold uppercase tracking-[0.2em] text-purpose-black">
             {conferenceDetails.location}
-          </span>
+          </span> */}
         </motion.div>
       </motion.div>
     </section>
